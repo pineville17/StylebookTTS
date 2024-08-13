@@ -690,9 +690,275 @@ li > *:last-child {
   <h2 id='abstract'><span>Abstract</span></h2><p><span>Zero-shot text-to-speech (ZS-TTS) is a TTS system capable of generating speech in voices it has not been explicitly trained on. While many recent ZS-TTS models effectively capture target speech styles using a single global style feature per speaker, they still face challenges in achieving high speaker similarity for voices that were not previously encountered. In this study, we propose StylebookTTS, a novel ZS-TTS framework that extracts and utilizes multiple target style embeddings based on the content. We begin by extracting style information from target speeches, leveraging linguistic content obtained through a self-supervised learning (SSL) model. The extracted style information is stored in a collection of embeddings called a stylebook, which represents styles in an unsupervised manner without the need for text transcriptions or speaker labeling. Simultaneously, the input text is transformed into content features using a transformer-based text-to-unit module, which links the text to the SSL representations of an utterance reading that text. The final target style is created by selecting embeddings from the stylebook that most closely align with the content features generated from the text. Finally, a diffusion-based decoder is employed to synthesize the mel-spectrogram by combining the final target style with the content features generated from the text. Experimental results demonstrate that StylebookTTS achieves greater speaker similarity compared to baseline models, while also being highly data-efficient, requiring significantly less paired text-audio data.</span></p>
 
   <h2 id='audio-samples'><span>Audio Samples</span></h2>
-  <p><span>Under preparation</span></p>
+  <h3 id='variable-target-length'><span>Various target lengths</span></h4>
+  <p><span>In this section, we compared the TTS results of StlyebookTTS and the baseline models obtained using various target speech lengths. </span></p>
   <figure class='table-figure'>
-    <table style="width:100%">
+	<table style="width:100%">
+		<h4 id='5-seconds'><span>Target Length : 5 sec</span></h5>
+		<thead>
+			<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>Meta-StyleSpeech</span></th>
+			<th style='text-align:center;' ><span>YourTTS</span></th>
+			<th style='text-align:center;' ><span>StylebookTTS (proposed)</span>
+		<th>
+		<tr>
+		<thead>
+
+		<tbody>
+		<tr>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/5sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/5sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/5sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/5sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/5sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/5sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/5sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/5sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/5sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/5sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/5sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/5sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+		<tr>
+
+		<tbody>
+	</table>
+
+  <figure class='table-figure'>
+	<table style="width:100%">
+		<h4 id='10-seconds'><span>Target Length : 10 sec</span></h5>
+		<thead>
+			<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>Meta-StyleSpeech</span></th>
+			<th style='text-align:center;' ><span>YourTTS</span></th>
+			<th style='text-align:center;' ><span>StylebookTTS (proposed)</span>
+		<th>
+		<tr>
+		<thead>
+
+		<tbody>
+		<tr>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/10sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/10sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/10sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/10sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/10sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/10sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/10sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/10sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/10sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/10sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/10sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/10sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+		<tr>
+
+		<tbody>
+	</table>
+
+  <figure class='table-figure'>
+	<table style="width:100%">
+		<h4 id='30-seconds'><span>Target Length : 30 sec</span></h5>
+		<thead>
+			<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>Meta-StyleSpeech</span></th>
+			<th style='text-align:center;' ><span>YourTTS</span></th>
+			<th style='text-align:center;' ><span>StylebookTTS (proposed)</span>
+		<th>
+		<tr>
+		<thead>
+
+		<tbody>
+		<tr>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/30sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/30sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/30sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/30sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/30sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/30sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/30sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/30sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/30sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/30sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/30sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/30sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+		<tr>
+
+		<tbody>
+	</table>
+
+  <figure class='table-figure'>
+	<table style="width:100%">
+		<h4 id='60-seconds'><span>Target Length : 60 sec</span></h5>
+		<thead>
+			<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>Meta-StyleSpeech</span></th>
+			<th style='text-align:center;' ><span>YourTTS</span></th>
+			<th style='text-align:center;' ><span>StylebookTTS (proposed)</span>
+		<th>
+		<tr>
+		<thead>
+
+		<tbody>
+		<tr>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/60sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/60sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/60sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/60sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/60sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/60sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/60sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/60sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/60sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/60sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/60sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/60sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+		<tr>
+
+		<tbody>
+	</table>
+
+  <figure class='table-figure'>
+	<table style="width:100%">
+		<h4 id='180-seconds'><span>Target Length : 180 sec</span></h5>
+		<thead>
+			<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>Meta-StyleSpeech</span></th>
+			<th style='text-align:center;' ><span>YourTTS</span></th>
+			<th style='text-align:center;' ><span>StylebookTTS (proposed)</span>
+		<th>
+		<tr>
+		<thead>
+
+		<tbody>
+		<tr>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/180sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/180sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/180sec/cvt_1995_1826_000016_000010.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/180sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/180sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/180sec/cvt_2300_131720_000024_000004.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/180sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/180sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/180sec/cvt_6829_68769_000011_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/GT/src_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/Meta-StyleSpeech/180sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/YourTTS/180sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+				<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/target_length/StylebookTTS/180sec/cvt_7729_102255_000024_000002.wav" type="audio/wav"></audio></td>
+		<tr>
+
+		<tbody>
+
+  </table></figure><p>&nbsp;</p></div></div>
+
+  <h4 id='data-size'><span>Various training DB sizes</span></h4>
+  <p><span>In this section, we present the StylebookTTS results in relation to the amount of text-audio paired data used to train the Text-to-Unit module. The same stylebook framework, responsible for style extraction and application, was used in every scenario. All samples were generated using 3 minutes of target speech. </span></p>
+  <figure class='table-figure'>
+  <table style="width:100%"> 
+	<thead>
+		<tr>
+			<th style='text-align:center;' ><span>GT (Target Voice)</span></th>
+			<th style='text-align:center;' ><span>5m</span></th>
+			<th style='text-align:center;' ><span>10m</span></th>
+			<th style='text-align:center;' ><span>30m</span></th>
+			<th style='text-align:center;' ><span>1h</span>
+			<th style='text-align:center;' ><span>3h</span>
+			<th style='text-align:center;' ><span>All (186h)</span>
+		<th>
+		<tr>
+	<thead>
+
+	<tbody>
+				<tr>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/GT/src_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/5min/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/10min/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/30min/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/1hour/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/3hour/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/186hour/cvt_1089_134686_000015_000003.wav" type="audio/wav"></audio></td>
+		<tr>
+		<tr>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/GT/src_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/5min/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/10min/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/30min/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/1hour/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/3hour/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/186hour/cvt_8555_284447_000014_000000.wav" type="audio/wav"></audio></td>
+		<tr>
+		<tr>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/GT/src_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/5min/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/10min/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/30min/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/1hour/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/3hour/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/186hour/cvt_3570_5694_000007_000009.wav" type="audio/wav"></audio></td>
+		<tr>
+		<tr>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/GT/src_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/5min/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/10min/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/30min/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/1hour/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/3hour/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+			<td style="text-align:center;" ><audio controls style="width: 210px;"><source src="audio/data_size/186hour/cvt_5105_28241_000003_000001.wav" type="audio/wav"></audio></td>
+		<tr>
+
+
 
   </table></figure><p>&nbsp;</p></div></div>
 </body>
